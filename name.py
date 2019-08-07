@@ -10,7 +10,7 @@ screen = pygame.display.set_mode(size)
 clock = pygame.time.Clock()
 
 color = (0, 127, 255)
-fish_image = pygame.image.load("dory.png")
+fish_image = pygame.image.load("fish.png")
 fish_image = pygame.transform.scale(fish_image, (80, 80))
 fish_rect = fish_image.get_rect()
 fish_rect.center = (width // 2, height // 2)
@@ -31,13 +31,13 @@ def move_fish():
         fish_rect.move_ip(speed[0], 0)
     if fish_rect.top < 0 or fish_rect.bottom > screen_info.current_h:
         speed[1] *= -1
-        fish_image = pygame.transform.flip(fish_image, True, False)
+        fish_image = pygame.transform.flip(fish_image, False, True)
         fish_rect.move_ip(0, speed[1])
 
 
 def main():
     while True:
-        clock.tick(60)
+        clock.tick(77)
         for event in pygame.event.get():
             if event.type == QUIT:
                 sys.exit()
